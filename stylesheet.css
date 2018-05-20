@@ -1,0 +1,65 @@
+html {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    line-height: 3.5ex;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+
+td:first-child {
+    padding-left: 20px;
+    white-space: nowrap;
+    text-align: right;
+}
+td {
+    vertical-align: middle;
+    padding: 8px 8px 10px 10px;
+    color: #555;
+    background-color: #eee;
+    font-size: 16pt;
+}
+.icon {
+    width: 2em;
+    height: 2em;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.social {
+    width: 35px;
+}
+.description {
+    font-size: 11pt;
+    display: block;
+    line-height: 3ex;
+}
+.me .icon {
+    width: 60px;
+    height: 60px;
+}
+table {
+    border-collapse: collapse;
+}
+thead td {
+    background-color: #666;
+    color: #EEE;
+}
+tfoot td {
+    background-color: white;
+}
+thead tr:first-child td,
+tbody tr:first-child td,
+tfoot tr:first-child td {
+    padding-top: 40px
+}
+thead tr:last-child td,
+tbody tr:last-child td,
+tfoot tr:last-child td {
+    padding-bottom: 40px
+}
+a {
+    text-decoration: none;
+    color: #46C
+}
