@@ -27,6 +27,11 @@ td {
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
+.icon.app-icon {
+    -webkit-border-radius: 22%;
+    -moz-border-radius: 22%;
+    border-radius: 22%;
+}
 .social {
     width: 35px;
 }
