@@ -1,2 +1,5 @@
 .idea
 *.iml
+# Video files are uploaded straight to the docroot on gbyk1 (too big for git)
+space-adventure/*.mp4
+space-adventure/*.jpg

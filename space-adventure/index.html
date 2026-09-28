@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Space Adventure - Chris Beach</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <meta property="og:title" content="Space Adventure" />
+        <meta property="og:image" content="https://chrisbeach.co.uk/space-adventure/space-adventure-poster.jpg" />
+        <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+        <style>
+            .film header {
+                background-color: #666;
+                color: #eee;
+                font-size: 16pt;
+                padding: 30px 20px;
+            }
+            .film header a {
+                color: #eee;
+            }
+            .film main {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 20px 16px 40px;
+                color: #555;
+            }
+            .film video {
+                display: block;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 2080 / 1152;
+                background-color: #000;
+            }
+            .film .description {
+                margin-top: 12px;
+            }
+        </style>
+    </head>
+    <body class="film">
+        <header>
+            Space Adventure
+            <div class="description">A short film by <a href="/">Chris Beach</a></div>
+        </header>
+        <main>
+            <video controls playsinline preload="metadata" poster="space-adventure-poster.jpg">
+                <source src="space-adventure.mp4" type="video/mp4" />
+                Your browser can't play this video. <a href="space-adventure.mp4">Download it</a> instead.
+            </video>
+        </main>
+    </body>
+</html>
