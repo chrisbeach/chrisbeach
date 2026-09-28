@@ -79,6 +79,59 @@
                 font-weight: 400;
                 border-bottom: none;
             }
+            .making-of figure {
+                margin: 20px 0;
+            }
+            .making-of figure img {
+                display: block;
+                width: 100%;
+                height: auto;
+                cursor: zoom-in;
+                border: 1px solid #ddd;
+            }
+            .making-of figcaption {
+                font-size: 11pt;
+                line-height: 1.5;
+                margin-top: 6px;
+            }
+            #zoom {
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                max-height: none;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background-color: #111;
+                overflow: auto;
+            }
+            #zoom::backdrop {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+            #zoom img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                cursor: zoom-in;
+            }
+            #zoom.actual img {
+                width: auto;
+                height: auto;
+                max-width: none;
+                cursor: zoom-out;
+            }
+            #zoom button {
+                position: fixed;
+                top: 12px;
+                right: 16px;
+                font-size: 28pt;
+                line-height: 1;
+                color: #fff;
+                background: none;
+                border: 0;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body class="film">
@@ -108,6 +161,16 @@
                     action shot by shot.
                     The model keeps those people and objects recognisable across the whole clip.
                 </p>
+                <figure>
+                    <a class="zoomable" href="img/comfyui-director.webp">
+                        <img src="img/comfyui-director.webp" width="2013" height="1258" loading="lazy"
+                             alt="The MiniMax H3 Director node in ComfyUI, with four reference pictures and a structured prompt" />
+                    </a>
+                    <figcaption>
+                        The MiniMax H3 Director in ComfyUI: four reference pictures (the boy, the spacesuit and the spaceship)
+                        and the structured prompt that assigns them to subjects and describes each shot. Click to zoom.
+                    </figcaption>
+                </figure>
 
                 <h3>The workflow</h3>
                 <ul>
@@ -148,16 +211,56 @@
                     The clips were cut together in <b>DaVinci Resolve Studio</b> on a 48 fps timeline
                     and set to music: <i>Snowfall</i> by &Oslash;neheart and reidenshi.
                 </p>
+                <figure>
+                    <a class="zoomable" href="img/davinci-resolve-timeline.webp">
+                        <img src="img/davinci-resolve-timeline.webp" width="5120" height="1408" loading="lazy"
+                             alt="The DaVinci Resolve Studio timeline, with the generated clips on three video tracks above the music" />
+                    </a>
+                    <figcaption>
+                        The edit in DaVinci Resolve Studio: the generated clips on three video tracks, with the music underneath.
+                        Click to zoom, then click again to see it at full size.
+                    </figcaption>
+                </figure>
 
                 <h3>Tools</h3>
                 <ul>
-                    <li>MiniMax H3 (video generation)</li>
-                    <li>ComfyUI (generation workflow)</li>
-                    <li>DaVinci Resolve Studio 21 (editing)</li>
-                    <li>FFmpeg (encoding for the web)</li>
-                    <li>Ubuntu Linux with an NVIDIA RTX 5090</li>
+                    <li><a href="https://huggingface.co/Comfy-Org/MiniMax-H3">MiniMax H3</a> (video generation)</li>
+                    <li><a href="https://www.comfy.org/">ComfyUI</a> (generation workflow)</li>
+                    <li><a href="https://www.blackmagicdesign.com/products/davinciresolve">DaVinci Resolve Studio 21</a> (editing)</li>
+                    <li><a href="https://ffmpeg.org/">FFmpeg</a> (encoding for the web)</li>
+                    <li><a href="https://ubuntu.com/">Ubuntu Linux</a> with an <a href="https://www.nvidia.com/en-gb/geforce/graphics-cards/50-series/rtx-5090/">NVIDIA RTX 5090</a></li>
                 </ul>
             </section>
         </main>
+
+        <dialog id="zoom">
+            <button type="button" aria-label="Close">&times;</button>
+            <img alt="" />
+        </dialog>
+        <script>
+            (function () {
+                var dialog = document.getElementById('zoom');
+                if (!dialog.showModal) return;
+                var img = dialog.querySelector('img');
+                document.querySelectorAll('a.zoomable').forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        img.src = link.href;
+                        img.alt = link.querySelector('img').alt;
+                        dialog.classList.remove('actual');
+                        dialog.showModal();
+                    });
+                });
+                img.addEventListener('click', function () {
+                    dialog.classList.toggle('actual');
+                });
+                dialog.addEventListener('click', function (e) {
+                    if (e.target === dialog) dialog.close();
+                });
+                dialog.querySelector('button').addEventListener('click', function () {
+                    dialog.close();
+                });
+            })();
+        </script>
     </body>
 </html>
