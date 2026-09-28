@@ -86,7 +86,7 @@
 
                 <h3>The workflow</h3>
                 <ul>
-                    <li><b>ComfyUI</b> runs the generation, using a workflow adapted from the community DaSiWa MiniMax H3 workflow, with one saved workflow per scene.</li>
+                    <li><b>ComfyUI</b> runs the generation, using a workflow adapted from the community <a href="https://github.com/darksidewalker/dasiwa-comfyui-workflows/tree/main/C-MMH3">DaSiWa MiniMax H3 workflow</a>, with one saved workflow per scene.</li>
                     <li>Each clip is generated at 1376&times;768 and 24 fps (25 sampling steps, <code>res_multistep</code> sampler), with a Qwen3-VL 32B text encoder reading the prompt.</li>
                     <li>It is then upscaled 1.5&times; to 2080&times;1152 with NVIDIA RTX Video Super Resolution, and frame-interpolated to 48 fps with FILM.</li>
                     <li>A 12-second clip takes about 10 minutes to render on the RTX 5090.</li>
